@@ -2,6 +2,7 @@
 
 namespace App\Interfaces;
 
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -24,10 +25,10 @@ interface UserInterface
     /**
      * Store a newly created resource in storage.
      *
-     * @param UserStoreRequest $request
+     * @param UserStoreRequest|RegisterRequest $request
      * @return Model|Builder
      */
-    public function store(UserStoreRequest $request):  Model|Builder;
+    public function store(UserStoreRequest|RegisterRequest $request):  Model|Builder;
 
     /**
      * Update the specified resource in storage.

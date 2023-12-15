@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Interfaces\UserInterface;
@@ -10,7 +11,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class UserService extends AbstractModelService implements UserInterface
+class UserService extends ModelService implements UserInterface
 {
     public function __construct()
     {
@@ -28,7 +29,7 @@ class UserService extends AbstractModelService implements UserInterface
     /**
      * @inheritDoc
      */
-    public function store(UserStoreRequest $request): Model|Builder
+    public function store(UserStoreRequest|RegisterRequest $request): Model|Builder
     {
         return $this->model->query()->create($request->validated());
     }

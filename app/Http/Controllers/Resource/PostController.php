@@ -22,7 +22,9 @@ class PostController extends ResourceController
      */
     public function index(): View|Application|Factory
     {
-        return view("$this->entity.resource.index", ['items' => $this->service->all(relations: ['author'])]);
+        return view("$this->entity.resource.index", [
+            'items' => $this->service->all(relations: ['author'])
+        ]);
     }
 
     /**

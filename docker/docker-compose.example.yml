@@ -10,7 +10,7 @@ services:
     build:
       context: ./php-fpm
     volumes:
-      - ./php-fpm/php8.1.ini:/usr/local/etc/php/php.ini
+      - ./php-fpm/php8.2.ini:/usr/local/etc/php/php.ini
       - ../:/var/www
     restart: always
     depends_on:

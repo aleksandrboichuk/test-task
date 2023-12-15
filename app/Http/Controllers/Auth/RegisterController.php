@@ -43,7 +43,7 @@ class RegisterController extends Controller
             // logging
 
             return back()->withErrors([
-                'email' => "Something went wrong, try again later.",
+                'system' => "Something went wrong, try again later.",
             ])->onlyInput('email');
         }
     }

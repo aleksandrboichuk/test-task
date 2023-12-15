@@ -10,7 +10,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-class PostService extends AbstractModelService implements PostInterface
+class PostService extends ModelService implements PostInterface
 {
     public function __construct()
     {
