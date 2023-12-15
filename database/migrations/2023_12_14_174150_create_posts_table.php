@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 75);
             $table->string('slug', 75)->index()->unique();
-            $table->string('content', 75)->unique();
+            $table->text('content');
             $table->bigInteger('created_by')
                 ->constrained('users')
                 ->restrinctOnDelete();

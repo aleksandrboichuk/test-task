@@ -49,4 +49,15 @@ class UserService extends ModelService implements UserInterface
     {
         return $this->find($id)?->delete();
     }
+
+    /**
+     * Finding User by Email
+     *
+     * @param string $email
+     * @return Model|Builder|null
+     */
+    public function findByEmail(string $email): Model|Builder|null
+    {
+        return $this->model->query()->where('email', $email)->first();
+    }
 }

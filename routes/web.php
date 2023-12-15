@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login.view', [], 301);
+    return redirect()->route('login', [], 301);
 });
 
 Route::middleware('guest')->group(function (){

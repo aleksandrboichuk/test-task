@@ -52,4 +52,15 @@ class PostService extends ModelService implements PostInterface
     {
         return $this->find($id)?->delete();
     }
+
+    /**
+     * Finding post by slug
+     *
+     * @param string $slug
+     * @return Model|Builder|null
+     */
+    public function findBySlug(string $slug): Model|Builder|null
+    {
+        return $this->model->query()->where('slug', $slug)->first();
+    }
 }

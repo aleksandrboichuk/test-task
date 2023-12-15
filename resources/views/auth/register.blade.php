@@ -7,56 +7,52 @@
 @endsection
 
 @section('content')
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-7 col-lg-5">
-                    <div class="login-wrap p-4 p-md-5">
-                        <h3 class="text-center mb-4">Sign Up</h3>
-                        <h4 class="text-center mb-4"><a href="/login">or Sign In</a></h4>
-                        <form action="/register" method="POST" class="login-form">
-                            @csrf
-                            <div class="form-group">
-                                <input type="text" class="form-control rounded-left" name="name" placeholder="Name" value="{{ old('name') }}" required>
-                            </div>
-                            @error('name')
-                                <div class="form-text text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <input type="text" class="form-control rounded-left" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                            </div>
-                            @error('email')
-                                <div class="form-text text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group d-flex">
-                                <input type="password" class="form-control rounded-left" name="password" placeholder="Password"
-                                       required>
-                            </div>
-                            @error('password')
-                            <div class="form-text text-danger">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group d-flex">
-                                <input type="password" class="form-control rounded-left" name="password_confirmation" placeholder="Confirm Password"
-                                       required>
-                            </div>
-                            @error('system')
-                            <div id="inputEmail" class="form-text text-danger mb-3">{{ $message }}</div>
-                            @enderror
-                            <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="signup-form mt-20">
+        <form action="{{route('register')}}" method="POST">
+            @csrf
+            <h2>Create Account</h2>
+            <p class="lead"></p>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Name" required="required">
+                </div>
+
+            </div>
+            @error('name')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                    <input type="email" class="form-control" name="email" placeholder="Email Address" value="{{old('email')}}" required="required">
                 </div>
             </div>
-        </div>
-    </section>
-@endsection
-
-@section('script')
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+            @error('email')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                </div>
+            </div>
+            @error('password')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
+            <div class="form-group">
+                <div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a href="{{route('login')}}">Login here</a>.</div>
+    </div>
 @endsection
