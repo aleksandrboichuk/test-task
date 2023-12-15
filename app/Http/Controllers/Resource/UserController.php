@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers\Resource;
 
-use App\Http\Controllers\ResourceController;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Interfaces\UserInterface;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 
 class UserController extends ResourceController

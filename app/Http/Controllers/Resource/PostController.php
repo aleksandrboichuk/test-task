@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Resource;
 
-use App\Http\Controllers\ResourceController;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 use App\Interfaces\PostInterface;
