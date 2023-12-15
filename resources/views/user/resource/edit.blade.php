@@ -20,7 +20,7 @@
                                         <label for="userName" class="form-label">Name</label>
                                         <input type="text" name="name" class="form-control border-dark" value="{{$item->name}}" id="userName" aria-describedby="userName" required>
                                     </div>
-                                    @error('title')
+                                    @error('name')
                                         <div class="form-text text-danger">{{ $message }}</div>
                                     @enderror
 
@@ -28,14 +28,14 @@
                                         <label for="userEmail" class="form-label">Email</label>
                                         <input type="text" class="form-control border-dark" value="{{$item->email }}" id="userEmail" name="email" aria-describedby="userEmail" required>
                                     </div>
-                                    @error('slug')
+                                    @error('email')
                                         <div class="form-text text-danger" >{{ $message }}</div>
                                     @enderror
                                     <div class="mb-3">
                                         <label for="userPassword" class="form-label">Password</label>
                                         <input type="password" class="form-control border-dark" value="{{$item->email }}" id="userPassword" name="password" aria-describedby="userPassword" required>
                                     </div>
-                                    @error('content')
+                                    @error('password')
                                         <div class="form-text text-danger">{{ $message }}</div>
                                     @enderror
 
