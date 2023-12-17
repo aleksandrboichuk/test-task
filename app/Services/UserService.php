@@ -23,7 +23,7 @@ class UserService extends ModelService implements UserInterface
      */
     public function all(int $perPage = 5, array $relations = []): LengthAwarePaginator
     {
-        return $this->model->query()->with($relations)->paginate($perPage);
+        return $this->model->query()->with($relations)->orderByDesc('id')->paginate($perPage);
     }
 
     /**
