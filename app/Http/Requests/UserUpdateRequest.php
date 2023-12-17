@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -23,9 +24,14 @@ class UserUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', "min:3", "max:50", "regex:/^[a-zA-Z\s]*$/"],
+            'name' => ['required', 'string', "min:3", "max:50", "regex:/^[а-яА-Я]|[a-zA-Z]$/"],
             'email' => ['required', 'email', "regex:/^\S+@\S+\.\S+$/", "unique:users,email,{$this->route('user')}"],
             'password' => ['required', "min:3", "max:255"],
         ];
+    }
+
+    protected function passedValidation(): void
+    {
+        $this->replace(['password' => Hash::make($this->validated('password'))]);
     }
 }
