@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Resource\PostController;
@@ -32,7 +33,7 @@ Route::middleware('guest')->group(function (){
 
 Route::middleware('auth')->group(function (){
     Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::post('logout', [LoginController::class, 'logout']);
+    Route::post('logout', [LogoutController::class, 'logout']);
     Route::resource('post', PostController::class);
     Route::resource('user', UserController::class);
 });
