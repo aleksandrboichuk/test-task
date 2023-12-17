@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserStoreRequest extends FormRequest
 {
@@ -27,5 +28,10 @@ class UserStoreRequest extends FormRequest
             'email' => ['required', 'email', "regex:/^\S+@\S+\.\S+$/", "unique:users"],
             'password' => ['required', "min:3", "max:255"],
         ];
+    }
+
+    protected function passedValidation(): void
+    {
+        $this->replace(['password' => Hash::make($this->validated('password'))]);
     }
 }
