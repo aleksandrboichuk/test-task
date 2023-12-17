@@ -32,6 +32,8 @@ class UserUpdateRequest extends FormRequest
 
     protected function passedValidation(): void
     {
-        $this->replace(['password' => Hash::make($this->validated('password'))]);
+        $password = $this->validated('password');
+
+        $this->replace(['password' => Hash::isHashed($password) ? $password : Hash::make($password)]);
     }
 }
