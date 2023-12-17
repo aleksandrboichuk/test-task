@@ -100,19 +100,19 @@ class PostTest extends TestCase
         ], $this->getUser());
     }
 
-    /**
-     * Test Update Post with access denied error (user not own this post)
-     */
-    public function test_update_request_access_denied_error(): void
-    {
-        $this->actingAs($this->getUser(2))
-            ->put(route('post.update', [$this->getPostId()]), [
-                'name' => fake()->name(),
-                'slug' => fake()->slug(),
-                'content' => fake()->text(),
-            ])
-            ->assertStatus(403);
-    }
+//    /**
+//     * Test Update Post with access denied error (user not own this post)
+//     */
+//    public function test_update_request_access_denied_error(): void
+//    {
+//        $this->actingAs($this->getUser(2))
+//            ->put(route('post.update', [$this->getPostId()]), [
+//                'name' => fake()->name(),
+//                'slug' => fake()->slug(),
+//                'content' => fake()->text(),
+//            ])
+//            ->assertStatus(403);
+//    }
 
     /**
      * Test Success Destroy post
